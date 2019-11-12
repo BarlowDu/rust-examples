@@ -99,7 +99,7 @@ fn collect_dir<P: AsRef<Path>>(_m: fs::Metadata, path: P,reg_file:&Regex) -> Col
                         result.filecount += childr.filecount;
                         result.filesize += childr.filesize;
                         result.linecount += childr.linecount;
-                        println!("{:?},{},{}",p,childr.filesize,childr.linecount);
+                        println!("{},{},{}",p.to_str().unwrap(),childr.filesize,childr.linecount);
                     } else {
                         let childr = collect_dir(md, d.path(),reg_file);
                         result.filecount += childr.filecount;
